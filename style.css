@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+    --white: #ffffff;
+    --off-white: #e5e5e5;
+    --transp-white-1: rgba(255,255,255,0.25);
+    --transp-white-2: rgba(255,255,255,0.1);
+    --transp-color: rgb(181, 144, 250, 0.1);
+    --blue-2: #9496f0;
+    --shadow: rgba(3, 46, 87, 0.2);
+}
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    background-image: url(clouds.webp);
+    background-size: cover;
+    height: 100vh;
+}
+
+.wrapper {
+    font-size: 16px;
+    width: 90vw;
+    max-width: 28rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.container {
+    width: 100%;
+    background: var(--transp-white-2);
+    backdrop-filter: blur(10px);
+    padding: 3rem 1.8rem;
+    border: 2px solid var(--transp-color);
+    border-radius: 0.6rem;
+    box-shadow: 0 1.8rem 3.7rem var(--shadow);
+    text-align: center;
+}
+
+.search-container {
+    display: grid;
+    font-size: 1rem;
+    gap: 1.25rem;
+    grid-template-columns: 9fr 3fr;
+}
+
+.search-container input, 
+.search-container button {
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-container input {
+    background-color: transparent;
+    border-bottom: 2px solid var(--transp-white-1);
+    color: var(--white);
+    padding: 0.7rem;
+}
+
+.search-container input::placeholder {
+    color: var(--off-white);
+}
+
+.search-container input:focus {
+    border-color: var(--white);
+}
+
+.search-container button {
+    background-color: var(--white);
+    border-radius: 0.3rem;
+    color: var(--blue-2);
+}
+
+ h2 {
+    color:var(--white);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18rem;
+    margin: 24px 0 16px;
+    text-transform: uppercase;
+}
+
+ img {
+    width: 4rem;
+}
+
+ h1 {
+    color: var(--white);
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.weather {
+    color: var(--off-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+.temp-container {
+    display: flex;
+    justify-content: center;
+}
+
+.temp-container div {
+    padding: 0.3rem 1em;
+}
+
+.temp-container div:first-child {
+    border-right: 1px solid var(--transp-white-1);
+}
+
+.temp-container .title {
+    color: var(--white);
+    letter-spacing: 0.1rem;
+}
+
+.temp-container .temp {
+    color: var(--off-white);
+    font-weight: 200;
+}
+
+.msg {
+    color: var(--white);
+    font-weight: 400;
+    margin-top: 1.8rem;
+    text-transform: uppercase;
+}
