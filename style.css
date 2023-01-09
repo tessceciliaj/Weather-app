@@ -135,3 +135,10 @@ body {
     margin-top: 1.8rem;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 768px) {
+    .search-container button {
+        font-size: 0.8rem;
+        padding: 0 0.4rem;
+    }
+}
