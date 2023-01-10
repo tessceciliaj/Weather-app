@@ -8,14 +8,18 @@ $(function () {
     let searchBtn = $("#search-btn")
     let cityRef = $("#city")
     let error = $(".error")
-
-    searchBtn.on("click", getWeather);
-    $(window).load(getWeather());
-
+  
+       document.getElementById("search-container").addEventListener("submit", function(event) {
+       event.preventDefault() 
+       getWeather();
+       console.log(event);
+    })
+    
     function getWeather() {
         let cityValue = cityRef.val();
         if (cityValue.length == 0) {
             error.text("Please enter a city name").show()
+            result.hide()
         } else {
             const API_WEATHER = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${key}&units=metric`
             fetch(API_WEATHER)
@@ -50,7 +54,7 @@ $(function () {
         }
     }
 
-
+  getWeather()
 
     // Vanilla Javascript code
     /*
