@@ -1,19 +1,19 @@
 //Move the comment section to try my jQuery code vs Vanilla Javascript.
 $(function () {
-
+ 
     key = "b637be93921b95367db68b9d6ae5ae88";
 
     // jQuery code
     let result = $("#result")
-    let searchBtn = $("#search-btn")
     let cityRef = $("#city")
     let error = $(".error")
+
+       $("#search-container").click(function(event) {
+        event.preventDefault();
+        getWeather();
+       })
   
-       document.getElementById("search-container").addEventListener("submit", function(event) {
-       event.preventDefault() 
-       getWeather();
-       console.log(event);
-    })
+     
     
     function getWeather() {
         let cityValue = cityRef.val();
@@ -56,15 +56,20 @@ $(function () {
 
   getWeather()
 
+
     // Vanilla Javascript code
-    /*
+   /*
     
     let result = document.getElementById("result");
     let searchBtn = document.getElementById("search-btn");
     let cityRef = document.getElementById("city");
     key = "b637be93921b95367db68b9d6ae5ae88";
     
-    
+      document.getElementById("search-container").addEventListener("submit", function(event) {
+       event.preventDefault() 
+       getWeather();
+       console.log(event);
+    })
     
     let getWeather = () => {
         let cityValue = cityRef.value;
@@ -102,9 +107,8 @@ $(function () {
     
     searchBtn.addEventListener("click", getWeather);
     window.addEventListener("load", getWeather);
-    
     */
-
+    
 });
 
 
