@@ -7,6 +7,7 @@ $(function () {
     let result = $("#result")
     let searchBtn = $("#search-btn")
     let cityRef = $("#city")
+    let error = $(".error")
 
     searchBtn.on("click", getWeather);
     $(window).load(getWeather());
@@ -14,7 +15,7 @@ $(function () {
     function getWeather() {
         let cityValue = cityRef.val();
         if (cityValue.length == 0) {
-            result.text("Please enter a city name")
+            error.text("Please enter a city name").show()
         } else {
             const API_WEATHER = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${key}&units=metric`
             fetch(API_WEATHER)
@@ -27,6 +28,9 @@ $(function () {
                 })
                 .then((data) => {
                     console.log(data);
+                    error.text("City not found").hide()
+                    error.text("Please enter a city name").hide()
+                    result.show()
                     $(".name").text(data.name);
                     $(".weather").text(data.weather[0].description);
                     $(".icon").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
@@ -36,9 +40,9 @@ $(function () {
                     $(".title-max").text("max");
                     $(".temp-max").text(data.main.temp_max + "°")
                 })
-                // ?
                 .catch(() => {
-                    result.text("City not found")
+                    error.text("City not found").show()
+                    result.hide()
                 })
                 .catch(error => {
                     $("main").append($("<div class='error'>").text("Something went wrong: " + error));
