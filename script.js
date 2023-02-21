@@ -7,7 +7,7 @@ $(function () {
     let result = $("#result")
     let cityRef = $("#city")
     let error = $(".error")
-
+    // Indentation is a little odd and some empty lines can be removed
        $("#search-container").click(function(event) {
         event.preventDefault();
         getWeather();
@@ -32,12 +32,12 @@ $(function () {
                 })
                 .then((data) => {
                     console.log(data);
-                    error.text("City not found").hide()
+                    error.text("City not found").hide() // You probably donät need to add any text here since it will not be seen
                     error.text("Please enter a city name").hide()
                     result.show()
                     $(".name").text(data.name);
                     $(".weather").text(data.weather[0].description);
-                    $(".icon").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+                $(".icon").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"); // Nice!
                     $(".main-temp").text(data.main.temp + "°");
                     $(".title-min").text("min");
                     $(".temp-min").text(data.main.temp_min + "°")
